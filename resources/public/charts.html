@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Help Desk Charts (Alpha)</title>
+    <link rel="stylesheet" href="charts.css" media="screen" />
+     <link rel="stylesheet" href="table.css" media="screen" />
+     <link rel="stylesheet" href="http://datatables.net/release-datatables/extras/TableTools/media/css/TableTools.css" media="screen" />
+     
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script>
+      // for FixedHeader 
+      // http://stackoverflow.com/a/16972927/115596
+      jQuery.browser={};(function(){jQuery.browser.msie=false;
+      jQuery.browser.version=0;if(navigator.userAgent.match(/MSIE ([0-9]+)\./)){
+      jQuery.browser.msie=true;jQuery.browser.version=RegExp.$1;}})();
+    
+    </script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script src="charts.js"></script>
+    <script src="http://datatables.net/download/build/jquery.dataTables.nightly.js"></script>
+    <script src=" http://datatables.net/release-datatables/extras/FixedHeader/js/FixedHeader.js"></script>
+    <script src=" http://datatables.net/release-datatables/extras/TableTools/media/js/ZeroClipboard.js"></script>
+    <script src=" http://datatables.net/release-datatables/extras/TableTools/media/js/TableTools.js"></script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="#ticketsGroupedByCreator">Tickets grouped by creator</a></li>
+        <li><a href="#ticketsGroupedByResolver">Tickets grouped by resolver</a></li>
+        <li><a href="#openTicketsGroupedByOwner">Open tickets grouped by owner</a></li>
+        <li><a href="#ticketsGroupedByInternalUserWaitWeek">Tickets grouped by internal user wait week</a></li> 
+        <li><a href="#ticketsGroupedByExternalUserWaitWeek">Tickets grouped by external user wait week</a></li>
+        <li><a href="#ticketsGroupedByMonthCreated">Tickets grouped by month created</a></li>
+        <li><a href="#averageOpenTicketDaysGroupedByMonthCreated">Average open tickets days grouped by month created</a></li>
+        <li><a href="#averageFirstResponseWaitDaysGroupedByMonthCreated">Average first response wait days grouped by month created</a></li>
+        <li><a href="#ticketsOpenedAddedAndResolvedByMonth">Tickets opened, added, and resolved by month</a></li>
+                
+      </ul>
+    </nav>
+
+    <form id="options">
+      <ul>
+        <li>
+          <label>Number of Top Users Showing</label> <input id="top" name="top" type="number">
+        </li>
+        <li>
+          <label>Start</label> <input id="start" name="start" type="date">
+        </li>
+        <li>
+          <label>End</label> <input id="end" name="end" type="date">
+        </li>
+        
+        <li>
+          <input id="submit" type="submit" value="draw"></input>
+        </li>
+        
+      </ul>
+    </form>
+    <div id="chart"></div>
+    <div id="table"></div>
+  </body>
+</html>
