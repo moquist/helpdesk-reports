@@ -15,16 +15,18 @@ jar=$1
 
 [[ ! -f $jar ]] && echo error: $jar does not exist && usage 2
 cp $jar $dir/
+cp config.sh $dir/
 jar=`basename $jar`
 
 echo Setting up $dir/run...
 cat > $dir/run <<EOF
 #!/bin/bash
 
-[[ -f config.sh ]] || echo missing config.sh && exit 1
+echo starting
+
+[[ ! -f config.sh ]] && echo missing config.sh && exit 1
 . config.sh
 
-echo starting
 exec java -jar ./$jar
 EOF
 chmod 755 $dir/run
