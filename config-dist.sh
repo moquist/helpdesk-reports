@@ -1,0 +1,4 @@
+HELPDESK_DB_HOST=localhost
+HELPDESK_DB_NAME=mydb
+HELPDESK_DB_USER=mydbuser
+HELPDESK_DB_PASSWORD=mysecretpassword

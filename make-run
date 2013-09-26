@@ -1,0 +1,33 @@
+#!/bin/bash
+
+dir=helpdesk-reports
+
+function usage {
+    cat <<EOF
+        Usage: ./make-run <jar-file>
+        Example: ./make-run ./target/helpdesk-reports-0.1.1-standalone.jar
+EOF
+    exit $1
+}
+
+[[ -z $1 ]] && echo error: missing jar file && usage 1
+jar=$1
+
+[[ ! -f $jar ]] && echo error: $jar does not exist && usage 2
+cp $jar $dir/
+jar=`basename $jar`
+
+echo Setting up $dir/run...
+cat > $dir/run <<EOF
+#!/bin/bash
+
+[[ -f config.sh ]] || echo missing config.sh && exit 1
+. config.sh
+
+echo starting
+exec java -jar ./$jar
+EOF
+chmod 755 $dir/run
+sudo mkdir -p /service
+sudo rsync -nav $dir/ /service/$dir/ && echo && echo return to continue if that looks good, otherwise CTRL-c to exit && read trash
+sudo rsync -av $dir/ /service/$dir/

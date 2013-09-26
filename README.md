@@ -8,18 +8,15 @@ You will need [Leiningen][1] 1.7.0 or above installed.
 
 [1]: https://github.com/technomancy/leiningen
 
-## Running
+## Deployment:
 
-First set the following environment variables
+1. lein ring uberjar
+2. cp config-dist.sh config.sh
+   1. Edit config.sh to set your DB connection info.
+3. sh ./make-run <jar-file>
 
-    HELPDESK_DB_HOST
-    HELPDESK_DB_NAME 
-    HELPDESK_DB_USER
-    HELPDESK_DB_PASSWORD
-
-To start a web server for the application, run:
-
-    lein ring server
+...it will be started within 5 seconds by daemontools. (See
+http://cr.yp.to/daemontools.html .)
 
 ## License
 
