@@ -1,4 +1,4 @@
-(defproject helpdesk-reports "0.1.5"
+(defproject helpdesk-reports "0.1.6-SNAPSHOT"
   :description "Moodle Help Desk Block Reports"
   :url "https://github.com/vlacs/helpdesk-reports"
   :license {:name "Eclipse Public License"
