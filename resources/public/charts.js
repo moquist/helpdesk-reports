@@ -253,17 +253,10 @@ var charts = {
         crosshairs: true
       },
       
-      series: [  {name: '2010-11', data: []},
-                 {name: '2011-12', data: []},
-                 {name: '2012-13', data: []},
-                 {name: '2013-14', data: []}],
-      
+      series: JSON.parse(JSON.stringify(default_series)),
+            
       };
-      var date_range = {'2010-11': {'start': '2010-07-01', 'end': '2011-06-30'},
-                        '2011-12': {'start': '2011-07-01', 'end': '2012-06-30'},
-                        '2012-13': {'start': '2012-07-01', 'end': '2013-06-30'},
-                        '2013-14': {'start': '2013-07-01', 'end': '2014-06-30'}
-                        };
+      var date_range = JSON.parse(JSON.stringify(default_date_range));
       chart = new Highcharts.Chart(options); 
       $.each(date_range, function (label, dateParams){
         $.getJSON('/tickets-grouped-by-month-created.json', dateParams, function(response){
@@ -315,17 +308,9 @@ var charts = {
         }
       },
       
-      series: [  {name: '2010-11', data: []},
-                 {name: '2011-12', data: []},
-                 {name: '2012-13', data: []},
-                 {name: '2013-14', data: []}],
-      
+      series: JSON.parse(JSON.stringify(default_series)),
       };
-      var date_range = {'2010-11': {'start': '2010-08-01', 'end': '2011-07-31'},
-                        '2011-12': {'start': '2011-08-01', 'end': '2012-07-31'},
-                        '2012-13': {'start': '2012-08-01', 'end': '2013-07-31'},
-                        '2013-14': {'start': '2013-07-01', 'end': '2014-06-30'}
-                        };
+      var date_range = JSON.parse(JSON.stringify(default_date_range));
       chart = new Highcharts.Chart(options); 
       $.each(date_range, function (label, dateParams){
         $.getJSON('/average-open-ticket-days-grouped-by-month-created.json', dateParams, function(response){
@@ -430,17 +415,10 @@ var charts = {
         crosshairs: true
       },
       
-      series: [  {name: '2010-11', data: []},
-                 {name: '2011-12', data: []},
-                 {name: '2012-13', data: []},
-                 {name: '2013-14', data: []}],
+      series: JSON.parse(JSON.stringify(default_series)),
       
       };
-      var date_range = {'2010-11': {'start': '2010-08-01', 'end': '2011-07-31'},
-                        '2011-12': {'start': '2011-08-01', 'end': '2012-07-31'},
-                        '2012-13': {'start': '2012-08-01', 'end': '2013-07-31'},
-                        '2013-14': {'start': '2013-07-01', 'end': '2014-06-30'}
-                        };
+      var date_range = JSON.parse(JSON.stringify(default_date_range));
       chart = new Highcharts.Chart(options); 
       $.each(date_range, function (label, dateParams){
         $.getJSON('/open-tickets-at-start-of-months.json', dateParams, function(response){
