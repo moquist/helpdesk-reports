@@ -1,23 +1,20 @@
 var chart;
 var qs  = window.location.search;
 
-var default_date_range = {
-    '2010-11': {'start': '2010-08-01', 'end': '2011-07-31'},
-    '2011-12': {'start': '2011-08-01', 'end': '2012-07-31'},
-    '2012-13': {'start': '2012-08-01', 'end': '2013-07-31'},
-    '2013-14': {'start': '2013-07-01', 'end': '2014-06-30'},
-    '2014-15': {'start': '2014-07-01', 'end': '2015-06-30'},
-    '2015-16': {'start': '2015-07-01', 'end': '2016-06-30'}
-};
+var academic_endyear = function() {
+    var now = new Date();
+    return new Date(now.getFullYear(), now.getMonth() + 6, now.getDay()).getFullYear();
+}();
 
-var default_series = [
-{name: '2010-11', data: []},
-{name: '2011-12', data: []},
-{name: '2012-13', data: []},
-{name: '2013-14', data: []},
-{name: '2014-15', data: []},
-{name: '2015-16', data: []}
-];
+var default_date_range = {};
+var default_series = [];
+for (startyear=2010; startyear < academic_endyear; startyear++) {
+    var endyear_str = (startyear + 1).toString();
+    var startyear_str = startyear.toString();
+    var disp_string = startyear_str + "-" + endyear_str;
+    default_date_range[disp_string] = {'start': startyear_str + '-08-01', 'end': endyear_str + '-07-31'};
+    default_series.push({name: disp_string, data: []});
+}
 
 var charts = {
   
