@@ -12,7 +12,7 @@ for (startyear=2010; startyear < academic_endyear; startyear++) {
     var endyear_str = (startyear + 1).toString();
     var startyear_str = startyear.toString();
     var disp_string = startyear_str + "-" + endyear_str;
-    default_date_range[disp_string] = {'start': startyear_str + '-08-01', 'end': endyear_str + '-07-31'};
+    default_date_range[disp_string] = {'start': startyear_str + '-07-01', 'end': endyear_str + '-06-30'};
     default_series.push({name: disp_string, data: []});
 }
 
